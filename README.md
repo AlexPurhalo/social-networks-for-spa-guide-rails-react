@@ -7,3 +7,6 @@
 	$ git add .
 	$ git commit -m "configured-react-rails-app-boilerplate"
 
+#### II. Tables scaffolding
+`$ rails g model User username hashed_password email`
+
