@@ -24,11 +24,5 @@ class AccountConfirmationService
 
 	def user; User.find(provided_id); end
 
-	# def provided_id; account_data.split(':').first; end
-
 	def provided_token; account_data.split(':').last; end
 end
-# def show_token; "#{user.id}:#{user.access_token}"; end
-# errors.push('Passwords not matches') if data_provided? && !hashes_matches?
-# def hashes_matches?; BCrypt::Password.new(user_hash) == account_data; end
-# def user_hash; user.hashed_password; end
