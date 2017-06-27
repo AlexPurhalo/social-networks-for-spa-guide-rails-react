@@ -23,6 +23,17 @@ class UsersController < ApplicationController
 		render json: { msg: 'hello' }
 	end
 
+	def inst_auth
+		user = FindInstagramUser.new(params[:code])
+
+		if user.setup_user_data && user.has_correct_data?
+			user.create unless user.exist?
+			render json: { user_data: user.data, inst_token: user.inst_token}
+		else
+			render json: { errors: [user.error_msg] }, status: :unprocessable_entity
+		end
+	end
+
 	private
 	def update_permission
 		confirmation = AccountConfirmationService.new(params[:id], request.headers['X-Access-Token'])

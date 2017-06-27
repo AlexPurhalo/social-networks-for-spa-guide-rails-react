@@ -17,7 +17,23 @@ export default class App extends Component {
 	}
 
   render() {
+		const serviceUrl = 'https://api.instagram.com',
+			clientId 			 = process.env.REACT_APP_INST_CLIENT_ID,
+			redirectUri 	 = process.env.REACT_APP_INST_REDIRECT_URI,
+			responseType 	 = 'code';
+
+		const authUrl = `
+			${serviceUrl}/oauth/authorize/
+			?client_id=${clientId}
+			&redirect_uri=${redirectUri}
+			&response_type=${responseType}
+		`;
 		const { message } = this.state;
-    return <div className="App">{ message ? message : 'loading...' }</div>;
+    return (
+			<div className="App">
+				<h1>{ message ? message : 'loading...' }</h1>
+				<a href={authUrl}>SignIn with Instagram</a>
+			</div>
+		);
   }
 }

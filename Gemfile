@@ -48,3 +48,5 @@ group :production do
 end
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'rest-client'
