@@ -9,12 +9,12 @@ export default class App extends Component {
 		this.state = { message: null };
 	}
 
-	componentDidMount() {
-		const testUrl = window.location.href;
-
-		axios.get(`${testUrl}/test_route`)
-			.then(res => this.setState({ message: res.data.title }))
-	}
+	// componentDidMount() {
+	// 	const testUrl = window.location.href;
+	//
+	// 	axios.get(`${testUrl}/test_route`)
+	// 		.then(res => this.setState({ message: res.data.title }))
+	// }
 
   render() {
 		const serviceUrl = 'https://api.instagram.com',

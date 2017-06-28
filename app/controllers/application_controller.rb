@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::API
-  def test_action
-    render json: { title: "Hello from Rails API :)"}
-  end
+	def query
+		query_string = params[:query]
+		query_variables = JSON.load(params[:variables]) || {}
+
+		result = Schema.execute(query_string, variables: query_variables)
+		render json: result
+	end
 end

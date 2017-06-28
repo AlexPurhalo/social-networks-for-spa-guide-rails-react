@@ -5,5 +5,9 @@ Rails.application.routes.draw do
 
 	get '/auth/instagram/callback', to: 'users#inst_auth'
 
-  get '/test_route', to: 'application#test_action', as: :test_route
+  post '/graphql', to: 'application#query', as: :graphql
+
+	if Rails.env.development?
+		mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+	end
 end

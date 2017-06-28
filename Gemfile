@@ -50,3 +50,9 @@ end
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'rest-client'
+gem 'graphql', '~> 1.6', '>= 1.6.4'
+gem 'graphiql-rails'
+
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'

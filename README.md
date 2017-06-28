@@ -7,6 +7,6 @@
 	$ git add .
 	$ git commit -m "configured-react-rails-app-boilerplate"
 
-#### II. Tables scaffolding
-`$ rails g model User username hashed_password email`
+```
+curl -XGET http://localhost:3000/graphql -d "query={ user(id: 11) { username }}"```
 
