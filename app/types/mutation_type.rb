@@ -2,13 +2,20 @@ MutationType = GraphQL::ObjectType.define do
 	name 'Mutation'
 	description 'Basic query to mutate data'
 
-	field :createUser, UserType do
+
+	field :createUserManually, UserType do
 		description 'Creates a user'
-		argument :id, !types.Int
-		argument :username, !types.String
+
+		argument :user, CreateUserManuallyType
 
 		resolve -> (o, args, c) {
-			User.update(args[:id], username: args[:username])
+
+			User.create(
+				username: args[:user]['username'],
+				email: args[:user]['email'],
+				hashed_password: args[:user]['hashed_password']
+			)
 		}
 	end
 end
+
